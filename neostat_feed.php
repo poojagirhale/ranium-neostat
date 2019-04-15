@@ -88,7 +88,7 @@ function callApi($method, $url, $data = false)
         google.charts.load("current", {packages:["corechart"]});
         google.charts.setOnLoadCallback(drawChart);
 
-        var asteroidsPerDay = <?php echo json_encode($asteroidsPerDay); ?>;
+        var asteroidsPerDay = <?php if(isset($asteroidsPerDay)){echo json_encode($asteroidsPerDay);} ?>;
 
         var chartData=[];
         var header= ['Each Day', 'Number Of Asteroids', { role: 'style' }];

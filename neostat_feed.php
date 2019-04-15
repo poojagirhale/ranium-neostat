@@ -97,7 +97,7 @@ function callApi($method, $url, $data = false)
             var temp=[];
             temp.push(asteroidsPerDay[i].each_day);
             temp.push(asteroidsPerDay[i].number_of_asteroids);
-            temp.push(asteroidsPerDay[i].blue);
+            temp.push('#3366cc');
 
             chartData.push(temp);
         }
@@ -126,8 +126,8 @@ function callApi($method, $url, $data = false)
 </head>
 <body>
 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="GET" >
-        Start Date : <input type="date" name="start_date" value="<?php echo $_GET['start_date'] ?>">
-        End Date :  <input type="date" name="end_date" value="<?php echo $_GET['end_date'] ?>">
+        Start Date : <input type="date" name="start_date" value="<?php if(isset($_GET['start_date'])) {echo $_GET['start_date']; } ?>">
+        End Date :  <input type="date" name="end_date" value="<?php if(isset($_GET['end_date'])) { echo $_GET['end_date']; } ?>">
         <input type="submit" name="submit">
 </form>
 <div id="barchart_values" style="width: 900px; height: 500px;"></div>
